@@ -11,20 +11,13 @@ A Telegram bot built using Python and the Telethon library.
     cd telegram-bot
     ```
 
-2. Create a virtual environment and activate it:
-
-    ```bash
-    python -m venv venv
-    source venv/bin/activate   # On Windows use: venv\Scripts\activate
-    ```
-
-3. Install the required packages:
+2. Install the required packages:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-4. Copy the example environment file and edit it:
+3. Copy the example environment file and edit it:
 
     ```bash
     cp .env.example .env
@@ -48,4 +41,4 @@ A Telegram bot built using Python and the Telethon library.
 Run the bot with:
 
 ```bash
-python main.py
+python3 bot.py
