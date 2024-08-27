@@ -8,7 +8,7 @@ A Telegram bot built using Python and the Telethon library.
 
     ```bash
     git clone https://github.com/A-d-i-t-h-y-a-n/telegram-bot.git
-    cd hermit-bot
+    cd telegram-bot
     ```
 
 2. Create a virtual environment and activate it:
