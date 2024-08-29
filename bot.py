@@ -1,19 +1,16 @@
 import os
 import asyncio
-import importlib
 import sys
 from pathlib import Path
 from telethon import TelegramClient, events
 from loguru import logger
 from config import API_ID, API_HASH, BOT_TOKEN
-import builtins 
+import builtins
 
 logger.remove()
 logger.add(sys.stdout, level="INFO", format="<green>{time:DD-MM-YY HH:mm}</green> | <level>{level: <8}</level> | <cyan>{message}</cyan>")
 
-
 bot = TelegramClient('bot', API_ID, API_HASH)
-
 builtins.bot = bot
 
 async def log_incoming_messages(event):
@@ -25,11 +22,11 @@ async def log_error(event, error):
 def load_plugins(plugin_name):
     path = Path(f"plugins/{plugin_name}.py")
     name = f"plugins.{plugin_name}"
-    spec = importlib.util.spec_from_file_location(name, path)
-    load = importlib.util.module_from_spec(spec)
-    load.logger = logger.bind(plugin=plugin_name)
-    spec.loader.exec_module(load)
-    sys.modules[name] = load
+    
+    # Basic import method
+    with open(path, 'r') as file:
+        exec(file.read(), globals())
+    
     logger.info(f"Loaded plugin: {plugin_name}")
 
 def load_all_plugins():
